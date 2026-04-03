@@ -296,7 +296,7 @@ export default function Home() {
                 </div>
                 <div className="contact-detail-text">
                   <h4>Web</h4>
-                  <p>www.sielco.cl</p>
+                  <p>https://sielco-web.vercel.app/</p>
                 </div>
               </div>
               
@@ -379,7 +379,7 @@ export default function Home() {
               <h4>Contacto</h4>
               <a href="mailto:ventas@sielco.cl">ventas@sielco.cl</a>
               <a href="tel:+56978983503">+56 9 7898 3503</a>
-              <a href="https://www.sielco.cl" target="_blank" rel="noopener">www.sielco.cl</a>
+              <a href="https://https://sielco-web.vercel.app/" target="_blank" rel="noopener">https://sielco-web.vercel.app/</a>
             </div>
           </div>
           <div className="footer-bottom">
