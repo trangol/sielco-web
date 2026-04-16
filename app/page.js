@@ -20,6 +20,7 @@ export default function Home() {
             <a href="#proyectos" onClick={() => setMenuOpen(false)}>Proyectos</a>
             <a href="#nosotros" onClick={() => setMenuOpen(false)}>Nosotros</a>
             <a href="#contacto" onClick={() => setMenuOpen(false)} className="nav-cta">Contacto</a>
+            <a href="https://intranet.sielco.cl" className="nav-cta" style={{ background: '#004C99' }}>Intranet</a>
           </div>
         </div>
       </nav>

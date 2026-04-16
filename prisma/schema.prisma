@@ -1,0 +1,43 @@
+// prisma/schema.prisma
+
+datasource db {
+  provider  = "postgresql"
+  // REEMPLAZA ESTO CON TU URL REAL ENTRE COMILLAS
+  url       = "postgresql://postgres.akgvklhpbwziyllistwh:Moshos2423%23@aws-1-us-west-2.pooler.supabase.com:6543/postgres?pgbouncer=true"
+  directUrl = "postgresql://postgres.akgvklhpbwziyllistwh:Moshos2423%23@aws-1-us-west-2.pooler.supabase.com:5432/postgres"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Cotizacion {
+  id              String    @id @default(cuid())
+  cliente         String
+  rut             String?
+  proyecto        String    // Ej: "Sistemas de Protección Contra Incendio"
+  estado          String    @default("Pendiente") // Pendiente, Aprobada, Rechazada
+  fechaCreacion   DateTime  @default(now())
+  plazoEntrega    Int       @default(8)
+  notas           String?   @db.Text
+  
+  // Relación con las partidas (items)
+  items           Partida[]
+
+  // Totales calculados
+  montoNeto       Float     @default(0)
+  iva             Float     @default(0)
+  total           Float     @default(0)
+}
+
+model Partida {
+  id              String     @id @default(cuid())
+  concepto        String     // Ej: "Memoria de cálculos"
+  condicion       String     @default("Original")
+  cantidad        Int        @default(1)
+  valorUF         Float      // O pesos, según prefieras
+  especialidad    String     @default("Eléctrica")
+  
+  cotizacion      Cotizacion @relation(fields: [cotizacionId], references: [id])
+  cotizacionId    String
+}
